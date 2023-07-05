@@ -15,13 +15,13 @@ const jwtValidator = async(req, res = response, next) => {
 
     try {
         
-        const payload = jwt.verify(
+        const { uid, name } = jwt.verify(
             token,
             process.env.SECRET_JWT_SEED
         );
 
-        req.uid = payload.uid;
-        req.name = payload.name;
+        req.uid = uid;
+        req.name = name;
 
     } catch (error) {
         return res.status(401).json({

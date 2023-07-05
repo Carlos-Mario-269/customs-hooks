@@ -34,11 +34,6 @@ const createEvent = async(req, res = response) => {
         })
         
     }
-
-    res.json({
-        ok: true,
-        msg: 'createEvent'
-    });
 };
 
 const updateEvent = async(req, res = response) => {
@@ -57,7 +52,6 @@ const updateEvent = async(req, res = response) => {
         }
 
         if(event.user.toString() !== uid){
-            console.log(event.user)
             return res.status(401).json({
                 ok: false,
                 msg: 'No tiene permiso para editar este evento'
@@ -101,7 +95,6 @@ const deleteEvent = async(req, res = response) => {
         }
 
         if(event.user.toString() !== uid){
-            console.log(event.user)
             return res.status(401).json({
                 ok: false,
                 msg: 'No tiene permiso para eliminar este evento'
@@ -118,7 +111,6 @@ const deleteEvent = async(req, res = response) => {
             ok: false,
             msg: 'Habla con el administrador'
         });
-        
     }
 };
 
